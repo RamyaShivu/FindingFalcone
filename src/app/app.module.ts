@@ -8,15 +8,15 @@ import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { DislayModalComponent } from './components/dislay-modal/dislay-modal.component';
-
+import { ResultComponent } from './components/result/result.component';
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
     FindComponent,
     HomeComponent,
-    DislayModalComponent
+    ResultComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +24,8 @@ import { DislayModalComponent } from './components/dislay-modal/dislay-modal.com
     HttpClientModule,
     FormsModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbCollapseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

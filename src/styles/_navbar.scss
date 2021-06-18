@@ -1,0 +1,16 @@
+.navbar-sticky {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    padding: 10px 40px;
+    img {
+        width: 30px;
+    }
+    div {
+        display: inline;
+        margin-left: 10px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+}
+

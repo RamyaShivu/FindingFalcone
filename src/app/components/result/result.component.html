@@ -1,0 +1,38 @@
+<div class="conatiner-fluid">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <ng-container *ngIf="findResult; else noRes">
+                <ng-container *ngIf="findResult.status; else notFound">
+                    <div class="mt-2 text-center text-secondary">
+                        <div class="icon-xxl text-success">
+                            <i class="far fa-smile"></i>
+                        </div>
+                        <h4>
+                            The Queen is hiding in
+                            <em class="text-primary">{{findResult.planet_name | uppercase}}!</em>
+                        </h4>
+                        <h5>It took us
+                            <span class="text-primary">{{totalTimeTaken}} Hours</span> to find her!
+                            <i class="far fa-grin-beam-sweat"></i>
+                        </h5>
+                    </div>
+                </ng-container>
+                <ng-template #notFound>
+                    <div class="text-center mt-2">
+                        <div class="icon-xxl text-danger">
+                            <i class="far fa-frown"></i>
+                        </div>
+                        <h4>Sorry! Could not find the queen</h4>
+                    </div>
+                </ng-template>
+            </ng-container>
+            <ng-template #noRes>
+                <div class="text-center">
+                    <div class="spinner-border text-secondary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>

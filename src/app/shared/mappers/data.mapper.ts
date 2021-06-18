@@ -1,4 +1,5 @@
 // tslint:disable-next-line: no-namespace
+/* A mapper file to kodify the Destination and vehicle data as necessary */
 export namespace DataMapper {
     export function dataForDestination(hideouts): any {
         const tempObj = {
@@ -56,17 +57,22 @@ export namespace DataMapper {
         });
         return vehicleObj;
     }
-    export function disableVehicle(obj, currentVehicleObj, currentDestination, previousVehicle, vehiclesDetails): any {
+    export function disableVehicle(obj, currentVehicleObj, currentDestination, previousVehicle, vehiclesDetails, userSelections): any {
         let prevVehicleTotalNo = null;
+        let userSelectedVehicles = [];
         for (const key in vehiclesDetails) {
             if (key === 'name' && vehiclesDetails.name === previousVehicle) {
                 prevVehicleTotalNo = vehiclesDetails.totalNo;
             }
         }
+        Object.keys(userSelections).forEach( key => {
+            userSelectedVehicles.push(userSelections[key].vehicleSelected)
+        })
         // tslint:disable-next-line: forin
         for (const key in obj) {
             if (key !== currentDestination) {
-                obj[key].vehicles[currentVehicleObj.name] = currentVehicleObj.totalNo === 0 ? true : false;
+                obj[key].vehicles[currentVehicleObj.name] = currentVehicleObj.totalNo === 0
+                        && (userSelections[key].vehicleSelected !== currentVehicleObj.name) ? true : false;
                 obj[key].vehicles[previousVehicle] = prevVehicleTotalNo === 0 ? true : false;
             }
             if (key === currentDestination) {

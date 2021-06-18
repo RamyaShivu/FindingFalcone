@@ -1,0 +1,16 @@
+.planet-container {
+    display: flex;
+    .card {
+        margin-bottom: 0.25rem;
+    }
+}
+.vehicle-container{
+    display: flex;
+    justify-content: center ;
+    .card{
+        margin: 0.25rem;
+    }
+    p {
+        text-align: center;
+    }
+}

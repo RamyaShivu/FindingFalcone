@@ -1,0 +1,68 @@
+ //check box base 
+ .chk {
+   input[type="checkbox"] {
+     visibility: hidden;
+
+     &::after {
+       content: "\e044";
+       color: $gray-400;
+       width: 1.5rem;
+       height: 1.5rem;
+       position: relative;
+       @include icon-font();
+       font-size: 1.5rem;
+       transition: all 0.3s;
+       visibility: visible;
+     }
+
+     &:checked {
+       &::after {
+         content: "\6a";
+         width: 1.5rem;
+         height: 1.5rem;
+         position: relative;
+         @include icon-font();
+         font-size: 1.5rem;
+         transition: all 0.3s;
+         color: $black;
+         visibility: visible;
+       }
+     }
+   }
+ }
+
+ //checkbox variants by theme colors
+ @each $color,
+ $value in $theme-colors {
+   .chk-#{$color} {
+     @include chk-variant($value);
+   }
+ }
+
+
+ //Rounded Check box
+ .chk-round {
+   input[type="checkbox"] {
+     &::after {
+       content: "\e048" !important;
+     }
+
+     &:checked {
+       &::after {
+         content: "\e037" !important;
+       }
+     }
+   }
+ }
+
+ #fixtureAssignmentTable {
+   .custom-control-label.warningcheckbox::before {
+     border: 3px solid rgb(247, 220, 149) !important;
+   }
+ }
+
+ #groupHallFixtureAssignments {
+   .custom-control-label.warningcheckbox::before {
+     border: 3px solid rgb(247, 220, 149) !important;
+   }
+ }

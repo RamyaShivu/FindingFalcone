@@ -1,0 +1,56 @@
+// //radiobutton base 
+// .rdb {
+//   input[type="radio"] {
+//     visibility: hidden;
+
+//     &::after {
+//       content: "\e048";
+//       color: $gray-400;
+//       width: 1.5rem;
+//       height: 1.5rem;
+//       position: relative;
+//       @include icon-font();
+//       font-size: 1.5rem;
+//       transition: all 0.3s;
+//       visibility: visible;
+//     }
+
+//     &:checked {
+//       &::after {
+//         content: "\e046";
+//         width: 1.5rem;
+//         height: 1.5rem;
+//         position: relative;
+//         @include icon-font();
+//         font-size: 1.5rem;
+//         transition: all 0.3s;
+//         color: $black;
+//         visibility: visible;
+//       }
+//     }
+//   }
+// }
+
+// //checkbox variants by theme colors
+// @each $color,
+// $value in $theme-colors {
+//   .rdb-#{$color} {
+//     @include rdb-variant($value);
+//   }
+// }
+
+
+// //Rounded Check box
+// .rdb-tick {
+//   input[type="radio"] {
+//     &::after {
+//       content: "\e048" !important;
+//     }
+
+//     &:checked {
+//       &::after {
+//         content: "\e037" !important;
+//       }
+//     }
+//   }
+// }

@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 import { DataMapper } from 'src/app/shared/mappers/data.mapper';
 import { FindFalconeService } from 'src/app/shared/services/find-falcone.service';
+import { SharedService } from 'src/app/shared/services/shared.service';
 @Component({
   selector: 'app-find',
   templateUrl: './find.component.html',
-  styleUrls: ['./find.component.css']
+  styles: []
 })
 export class FindComponent implements OnInit {
   hideOutsAvailable = [];
@@ -26,18 +27,19 @@ export class FindComponent implements OnInit {
   vehicleDetailsForDestination = null;
   totalTimeTaken = 0;
   disableFindButton = true;
-  modalRaf;
   findResult = null;
   constructor(
     private findFalconeService: FindFalconeService,
     private formBuilder: FormBuilder,
-    private modal: NgbModal
+    private router: Router,
+    private sharedService: SharedService
     ) { }
 
   ngOnInit(): void {
     this.initializeData();
+    localStorage.clear();
   }
-
+  /* The below function makes the initial API calls to show the destinations and vehicles  */
   initializeData(): void {
     this.findFalconeService.getAllHideOuts().subscribe( result => {
       this.hideOutsAvailable = result;
@@ -52,6 +54,7 @@ export class FindComponent implements OnInit {
     });
   }
 
+  /* The below function builds the destination reactive form*/
   displayForm(): void {
     this.destinationForm = this.formBuilder.group({
       destination1: ['', Validators.required],
@@ -61,7 +64,7 @@ export class FindComponent implements OnInit {
     });
   }
 
-
+  /* The below function is invoked whenever a destination is selected and modifies data accrodingly*/
   onHideoutSelection(currentDestination): void {
     this.vehicleAvailibility[currentDestination].vehicles =
      DataMapper.getVehicleAvailability(this.destinationForm.controls[currentDestination].value, this.hideOutsAvailable, this.vehicles);
@@ -72,8 +75,8 @@ export class FindComponent implements OnInit {
         hideOutsSelected.push(formObj[key]);
       }
     }
-    for (const destination in this.hideOutsToDisplay) { // eachDest ==dest1, dest 2 etc
-      if (destination !== currentDestination ) { // all others except currently selected dest
+    for (const destination in this.hideOutsToDisplay) { 
+      if (destination !== currentDestination ) { 
         let allOptions = this.hideOutsAvailable;
         hideOutsSelected.forEach(selectedDest => {
           if (formObj[destination] !== selectedDest ) {
@@ -86,7 +89,8 @@ export class FindComponent implements OnInit {
       }
     }
   }
-
+  /* The below function is invoked whenever a vehicle is selected for a destination 
+  and enables and disables the vehicles depending on vehicle availibilty*/
   onVehicleSelection(vehicleObj, currentDestination): void {
     this.totalTimeTaken = 0;
     const hideoutSelected = this.hideOutsAvailable.find( hideout =>
@@ -113,10 +117,10 @@ export class FindComponent implements OnInit {
         }
       });
     }
-    this.disableVehicle = DataMapper.disableVehicle(this.vehicleDetailsForDestination, vehicleObj,
-      currentDestination, prevVehicle, this.vehiclesToDisplay);
     this.userSelectionObj[currentDestination].vehicleSelected = vehicleObj.name;
     this.userSelectionObj[currentDestination].timeTaken = (hideoutSelected.distance / vehicleObj.speed);
+    this.disableVehicle = DataMapper.disableVehicle(this.vehicleDetailsForDestination, vehicleObj,
+      currentDestination, prevVehicle, this.vehiclesToDisplay, this.userSelectionObj);
     let counter = 0;
     Object.keys(this.userSelectionObj).forEach( key => {
       counter += this.userSelectionObj[key].vehicleSelected ? 1 : 0;
@@ -124,17 +128,23 @@ export class FindComponent implements OnInit {
     });
     this.disableFindButton = counter === 4 ? false : true;
   }
-
-  async findFalcone(content){
-    this.modalRaf = this.modal.open(content, {ariaLabelledBy: 'modal-basic-title'});
+  /* The below function is invoked when user clicks on Find Falcone button*/
+  async findFalcone(){
     const reqBody = DataMapper.getRequestBodyToFindFalcone(this.destinationForm.value, this.userSelectionObj);
     reqBody.token = (await this.findFalconeService.getToken()).token;
     if (reqBody.token !== '') {
-      this.findFalconeService.findFalcone(reqBody)
-      .subscribe(finalRes => {
-        this.findResult = finalRes;
-      })
+      this.sharedService.setTimeTaken(this.totalTimeTaken);
+      this.sharedService.setRequestBody(reqBody);
+      this.router.navigate(['/result']);
     }
+  }
+  /* The below function is invoked when user closes the results modal*/
+  reInitializeComponent() {
+    this.hideOutsAvailable = [];
+    this.vehicles = [];
+    this.disableFindButton = true;
+    this.totalTimeTaken = 0;
+    this.initializeData();
   }
 }
 

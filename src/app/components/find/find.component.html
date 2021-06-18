@@ -1,9 +1,9 @@
-<div class="container-fluid">
-    <form [formGroup]="destinationForm" *ngIf="hideOutsAvailable.length > 0 && hideOutsToDisplay">
+<div class="container-fluid mb-5">
+    <form [formGroup]="destinationForm" *ngIf="hideOutsAvailable.length > 0 && hideOutsToDisplay; else noRes">
         <div class="row mt-3">
             <div class="col-md-3">
-                <div class="card">
-                    <div class="card-header">Destination 1</div>
+                <div class="card display-card">
+                    <div class="card-header">Hideout 1</div>
                     <div class="card-body">
                         <div class="form-group">
                             <select class="form-control" formControlName="destination1"
@@ -23,7 +23,7 @@
                             </div>
                         </div>
                         <ng-container *ngIf="destinationForm.value['destination1'] !== ''">
-                            <div class="form-check" *ngFor="let vehicle of vehiclesToDisplay">
+                            <div class="form-check" *ngFor="let vehicle of vehiclesToDisplay; let i = index">
                                 <input class="form-check-input"
                                         type="radio"
                                         name="radioBasic1" id="d1-v{{vehicle.id}}"
@@ -39,8 +39,8 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card">
-                    <div class="card-header">Destination 2</div>
+                <div class="card display-card">
+                    <div class="card-header">Hideout 2</div>
                     <div class="card-body">
                         <div class="form-group">
                             <select class="form-control" formControlName="destination2"
@@ -77,8 +77,8 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card">
-                    <div class="card-header">Destination 3</div>
+                <div class="card display-card">
+                    <div class="card-header">Hideout 3</div>
                     <div class="card-body">
                         <div class="form-group">
                             <select class="form-control" formControlName="destination3"
@@ -114,8 +114,8 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card">
-                    <div class="card-header">Destination 4</div>
+                <div class="card display-card">
+                    <div class="card-header">Hideout 4</div>
                     <div class="card-body">
                         <div class="form-group">
                             <select class="form-control" formControlName="destination4"
@@ -153,14 +153,16 @@
         </div>
         <div class="row mt-3">
             <div class="col-md-4 offset-md-4 text-center">
-                <h2>Time Taken</h2>
-                <h3 class="text-info">{{totalTimeTaken}} Hours</h3>
+                <div class="card bg-light">
+                    <h2>Time Taken</h2>
+                    <h3 class="text-primary">{{totalTimeTaken}} Hours</h3>
+                </div>
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-md-4 offset-md-4 text-center">
-                <button class="btn custom-btn"
-                        (click)="findFalcone(content)"
+                <button class="btn btn-primary"
+                        (click)="findFalcone()"
                         [disabled]="destinationForm.invalid || disableFindButton">
                     Find Falcone
                 </button>
@@ -168,36 +170,11 @@
         </div>
     </form>
 </div>
-<ng-template #content let-modal>
-
-    <div class="modal-header">
-      <h6 class="text-center">Searching...</h6>
-      <button type="button" class="close" aria-label="Close" (click)="modal.close()">
-        <span aria-hidden="true">&times;</span>
-      </button>
+<ng-template #noRes>
+    <div class="text-center">
+        <div class="spinner-border text-secondary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
     </div>
-    <div class="modal-body">
-        <ng-container *ngIf="findResult; else noRes">
-            <ng-container *ngIf="findResult.status; else notFound">
-                <div class="text-center mt-2">
-                    <h3>Found the Queen!!!</h3>
-                    <h4>She is in <span>{{findResult.planet_name}}.</span></h4>
-                    <h5>It took us {{totalTimeTaken}} Hours to find her!</h5>
-                </div>
-            </ng-container>
-            <ng-template #notFound>
-                <div class="text-center mt-2">
-                    <h4>Sorry! Could not find the queen</h4>
-                </div>
-            </ng-template>
-        </ng-container>
-        <ng-template #noRes>
-            <div class="text-center">
-                <div class="spinner-border text-dark" role="status">
-                    <span class="sr-only">Loading...</span>
-                </div>
-            </div>
-        </ng-template>
-    </div>
-  </ng-template>
+</ng-template>
 

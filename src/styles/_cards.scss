@@ -1,0 +1,11 @@
+.display-card {
+    .card-header {
+        font-size: $font-size-lg;
+        color: $secondary;
+        background-color: $white;
+        text-align: center;
+    }
+    .card-body {
+        min-height: 12rem;
+    }
+}
