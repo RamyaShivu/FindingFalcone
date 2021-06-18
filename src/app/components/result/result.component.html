@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <ng-container *ngIf="findResult; else noRes">
-                <ng-container *ngIf="findResult.status; else notFound">
+                <ng-container *ngIf="findResult.status === 'success'; else notFound">
                     <div class="mt-2 text-center text-secondary">
                         <div class="icon-xxl text-success">
                             <i class="far fa-smile"></i>
