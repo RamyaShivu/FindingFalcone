@@ -1,0 +1,23 @@
+.card-body{
+    min-height: 12rem;
+}
+.modal-body {
+    min-height: 10rem;
+}
+.spinner-border {
+    width: 4rem !important;
+    height: 4rem !important;
+}
+.modal-header{
+    padding: 0.5rem !important;
+}
+.custom-btn{
+    background-color: #dc357e;
+    color: white;
+}
+.card-header {
+    text-align: center;
+    color: #dc357e;
+    background-color: white;
+    font-weight: 500;
+}

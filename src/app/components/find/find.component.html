@@ -1,0 +1,203 @@
+<div class="container-fluid">
+    <form [formGroup]="destinationForm" *ngIf="hideOutsAvailable.length > 0 && hideOutsToDisplay">
+        <div class="row mt-3">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">Destination 1</div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <select class="form-control" formControlName="destination1"
+                                (change)="onHideoutSelection('destination1')">
+                                <option value="">--Select--</option>
+                                <option *ngFor="let option of hideOutsToDisplay['destination1']"
+                                    [ngValue]="option.name">
+                                    {{option.name}}</option>
+                            </select>
+                            <div *ngIf="destinationForm.controls['destination1'].invalid &&
+                                        destinationForm.controls['destination1'].touched ||
+                                        destinationForm.controls['destination1'].dirty">
+                                <small *ngIf="destinationForm.controls['destination1'].errors?.required"
+                                    class="text-danger">
+                                    Field Required
+                                </small>
+                            </div>
+                        </div>
+                        <ng-container *ngIf="destinationForm.value['destination1'] !== ''">
+                            <div class="form-check" *ngFor="let vehicle of vehiclesToDisplay">
+                                <input class="form-check-input"
+                                        type="radio"
+                                        name="radioBasic1" id="d1-v{{vehicle.id}}"
+                                        value={{vehicle.name}} (change)="onVehicleSelection(vehicle, 'destination1')"
+                                        [disabled]="(disableVehicle && disableVehicle['destination1'].vehicles[vehicle.name])
+                                                    || !vehicleAvailibility['destination1'].vehicles[vehicle.name]">
+                                <label class="form-check-label" for="d1-v{{vehicle.id}}">
+                                    {{vehicle.name}} ({{vehicle.totalNo}})
+                                </label>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">Destination 2</div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <select class="form-control" formControlName="destination2"
+                                (change)="onHideoutSelection('destination2')">
+                                <option value="">--Select--</option>
+                                <option *ngFor="let option of hideOutsToDisplay['destination2']"
+                                    [ngValue]="option.name">
+                                    {{option.name}}</option>
+                            </select>
+                            <div *ngIf="destinationForm.controls['destination2'].invalid &&
+                                        destinationForm.controls['destination2'].touched ||
+                                        destinationForm.controls['destination2'].dirty">
+                                 <small *ngIf="destinationForm.controls['destination2'].errors?.required"
+                                        class="text-danger">
+                                     Field Required
+                                 </small>
+                            </div>
+                        </div>
+                        <ng-container *ngIf="destinationForm.value['destination2'] !== ''">
+                            <div class="form-check" *ngFor="let vehicle of vehiclesToDisplay">
+                                <input class="form-check-input"
+                                        type="radio"
+                                        name="radioBasic2" id="d2-v{{vehicle.id}}"
+                                        value={{vehicle.name}}
+                                        (change)="onVehicleSelection(vehicle, 'destination2')"
+                                        [disabled]="(disableVehicle && disableVehicle['destination2'].vehicles[vehicle.name])
+                                                    || !vehicleAvailibility['destination2'].vehicles[vehicle.name]">
+                                <label class="form-check-label" for="d2-v{{vehicle.id}}">
+                                    {{vehicle.name}} ({{vehicle.totalNo}})
+                                </label>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">Destination 3</div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <select class="form-control" formControlName="destination3"
+                                (change)="onHideoutSelection('destination3')">
+                                <option value="">--Select--</option>
+                                <option *ngFor="let option of hideOutsToDisplay['destination3']"
+                                    [ngValue]="option.name">
+                                    {{option.name}}</option>
+                            </select>
+                            <div *ngIf="destinationForm.controls['destination3'].invalid &&
+                                        destinationForm.controls['destination3'].touched ||
+                                        destinationForm.controls['destination3'].dirty">
+                                 <small *ngIf="destinationForm.controls['destination3'].errors?.required"
+                                        class="text-danger">
+                                     Field Required
+                                 </small>
+                            </div>
+                        </div>
+                        <ng-container *ngIf="destinationForm.value['destination3'] !== ''">
+                            <div class="form-check" *ngFor="let vehicle of vehiclesToDisplay">
+                                <input class="form-check-input"
+                                        type="radio"
+                                        name="radioBasic3" id="d3-v{{vehicle.id}}"
+                                        value={{vehicle.name}} (change)="onVehicleSelection(vehicle, 'destination3')"
+                                        [disabled]="(disableVehicle && disableVehicle['destination3'].vehicles[vehicle.name])
+                                                    || !vehicleAvailibility['destination3'].vehicles[vehicle.name]">
+                                <label class="form-check-label" for="d3-v{{vehicle.id}}">
+                                    {{vehicle.name}} ({{vehicle.totalNo}})
+                                </label>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">Destination 4</div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <select class="form-control" formControlName="destination4"
+                                (change)="onHideoutSelection('destination4')">
+                                <option value="">--Select--</option>
+                                <option *ngFor="let option of hideOutsToDisplay['destination4']"
+                                    [ngValue]="option.name">
+                                    {{option.name}}</option>
+                            </select>
+                            <div *ngIf="destinationForm.controls['destination4'].invalid &&
+                                        destinationForm.controls['destination4'].touched ||
+                                        destinationForm.controls['destination4'].dirty">
+                                 <small *ngIf="destinationForm.controls['destination4'].errors?.required"
+                                        class="text-danger">
+                                     Field Required
+                                 </small>
+                            </div>
+                        </div>
+                        <ng-container *ngIf="destinationForm.value['destination4'] !== ''">
+                            <div class="form-check" *ngFor="let vehicle of vehiclesToDisplay">
+                                <input class="form-check-input"
+                                        type="radio"
+                                        name="radioBasic4" id="d4-v{{vehicle.id}}"
+                                        value={{vehicle.name}} (change)="onVehicleSelection(vehicle, 'destination4')"
+                                        [disabled]="(disableVehicle && disableVehicle['destination4'].vehicles[vehicle.name])
+                                                    || !vehicleAvailibility['destination4'].vehicles[vehicle.name]">
+                                <label class="form-check-label" for="d4-v{{vehicle.id}}">
+                                    {{vehicle.name}} ({{vehicle.totalNo}})
+                                </label>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-4 offset-md-4 text-center">
+                <h2>Time Taken</h2>
+                <h3 class="text-info">{{totalTimeTaken}} Hours</h3>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-4 offset-md-4 text-center">
+                <button class="btn custom-btn"
+                        (click)="findFalcone(content)"
+                        [disabled]="destinationForm.invalid || disableFindButton">
+                    Find Falcone
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<ng-template #content let-modal>
+
+    <div class="modal-header">
+      <h6 class="text-center">Searching...</h6>
+      <button type="button" class="close" aria-label="Close" (click)="modal.close()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <ng-container *ngIf="findResult; else noRes">
+            <ng-container *ngIf="findResult.status; else notFound">
+                <div class="text-center mt-2">
+                    <h3>Found the Queen!!!</h3>
+                    <h4>She is in <span>{{findResult.planet_name}}.</span></h4>
+                    <h5>It took us {{totalTimeTaken}} Hours to find her!</h5>
+                </div>
+            </ng-container>
+            <ng-template #notFound>
+                <div class="text-center mt-2">
+                    <h4>Sorry! Could not find the queen</h4>
+                </div>
+            </ng-template>
+        </ng-container>
+        <ng-template #noRes>
+            <div class="text-center">
+                <div class="spinner-border text-dark" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+  </ng-template>
+
