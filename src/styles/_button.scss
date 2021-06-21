@@ -4,10 +4,7 @@ button:focus {
 }
 
 .btn-with-icon-only {
-  // font-size: 0.9rem !important;
   display: inline-flex !important;
-  // padding: 0.6rem 0.9rem 0.3rem 0.9rem !important;
-  padding-bottom: 0.275rem !important;
 
   [class^="icon-"],
   [class*=" icon-"] {
@@ -18,9 +15,7 @@ button:focus {
 }
 
 .btn-with-icon-right {
-  // font-size: 0.9rem !important;
   display: inline-flex !important;
-  // padding: 0.6rem 0.9rem 0.3rem 0.9rem !important;
   padding-bottom: 0.275rem !important;
 
   [class^="icon-"],
@@ -33,7 +28,6 @@ button:focus {
 
 .btn-with-icon-left {
   display: inline-flex !important;
-  // padding: 0.6rem 0.9rem 0.3rem 0.9rem !important;
   padding-bottom: 0.275rem !important;
 
   [class^="icon-"],
@@ -41,43 +35,6 @@ button:focus {
     font-size: 1.1rem;
     display: flex;
     padding: 0.2rem 0.4rem 0.2rem 0;
-  }
-}
-
-.btn-tab {
-  color: $gray-500 !important;
-  background-color: transparent !important;
-  box-shadow: none !important;
-  padding: 0.8rem 1.4rem !important;
-  font-size: 0.8rem !important;
-  cursor: pointer;
-
-  &:not(:disabled):not(.disabled):active,
-  &:not(:disabled):not(.disabled).active {
-    color: $black !important;
-    background-color: $white !important;
-    box-shadow: 0 0.25rem 0 rgba($black, 0.075),
-      0 0.025rem 0.25rem rgba($black, 0.075); // border: $card-border-width solid transparent !important;
-    // border-bottom: $card-border-width solid transparent !important;
-  }
-}
-
-.btn-radio {
-  color: $gray-700 !important;
-  background-color: $light !important;
-  box-shadow: none !important;
-  padding: 0.8rem 1.4rem !important;
-  font-size: 0.8rem !important;
-  border: $border-width solid $light !important;
-  cursor: pointer;
-
-  &:not(:disabled):not(.disabled):active,
-  &:not(:disabled):not(.disabled).active {
-    color: $primary !important;
-    background-color: $white !important;
-    box-shadow: none !important;
-    border: $border-width solid $gray-700 !important;
-    // border-bottom: $card-border-width solid transparent !important;
   }
 }
 

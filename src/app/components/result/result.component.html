@@ -15,6 +15,11 @@
                             <span class="text-primary">{{totalTimeTaken}} Hours</span> to find her!
                             <i class="far fa-grin-beam-sweat"></i>
                         </h5>
+                        <div class="mt-5">
+                            <button class="btn btn-outline-secondary btn-with-icon-left" (click)="routeToHome()">
+                                <span><i class="fas fa-home pr-1"></i>Back to Home</span>
+                            </button>
+                        </div>
                     </div>
                 </ng-container>
                 <ng-template #notFound>
@@ -23,16 +28,21 @@
                             <i class="far fa-frown"></i>
                         </div>
                         <h4>Sorry! Could not find the queen</h4>
+                        <div class="mt-5">
+                            <button class="btn btn-outline-secondary btn-with-icon-left" (click)="routeToHome()">
+                                <span><i class="fas fa-home pr-1"></i>Back to Home</span>
+                            </button>
+                        </div>
                     </div>
                 </ng-template>
             </ng-container>
-            <ng-template #noRes>
-                <div class="text-center">
-                    <div class="spinner-border text-secondary" role="status">
-                        <span class="sr-only">Loading...</span>
-                    </div>
-                </div>
-            </ng-template>
         </div>
     </div>
 </div>
+<ng-template #noRes>
+    <div class="text-center">
+        <div class="spinner-border text-secondary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</ng-template>

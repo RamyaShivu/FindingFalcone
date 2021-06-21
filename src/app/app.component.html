@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" routerLink="#">FindingFalcone</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar-sticky">
+  <a class="navbar-brand" routerLink="/home">FindingFalcone</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse"
         data-target="#collapsibleNavbar" [attr.aria-expanded]="!isCollapsed"
         (click)="isCollapsed = !isCollapsed">
@@ -10,16 +10,14 @@
           <li class="nav-item" data-toggle="tab">
               <a class="nav-link" routerLink="/find">Find Falcone</a>
           </li>
-          <li class="nav-item" data-toggle="tab">
-              <a class="nav-link" routerLink="/home"><i class="fas fa-home"></i>
-                <span class="sr-only">(current)</span>
-            </a>
-          </li>
       </ul>
   </div>
 </nav>
+<section class="section-content">
+    <router-outlet></router-outlet>
+
+</section>
 <footer class="action-bar">
     <div class="text-right">&copy;RamyaShivu</div>
     <div><a href="https://www.linkedin.com/in/ramya-h-s/" target="_blank"><i class="fab fa-linkedin-in"></i></a></div>
 </footer>
-<router-outlet></router-outlet>

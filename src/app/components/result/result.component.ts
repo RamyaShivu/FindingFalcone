@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataMapper } from 'src/app/shared/mappers/data.mapper';
 import { FindFalconeService } from 'src/app/shared/services/find-falcone.service';
 import { SharedService } from 'src/app/shared/services/shared.service';
@@ -13,7 +14,8 @@ export class ResultComponent implements OnInit {
   totalTimeTaken = null;
   constructor(
     private sharedService: SharedService,
-    private findFalconeService: FindFalconeService
+    private findFalconeService: FindFalconeService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -26,5 +28,8 @@ export class ResultComponent implements OnInit {
     .subscribe(finalRes => {
       this.findResult = finalRes;
     })
+  }
+  routeToHome() {
+    this.router.navigate(['/home'])
   }
 }
