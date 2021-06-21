@@ -9,20 +9,4 @@
     width: 100vw;
     z-index: 10;
     padding: 10px 40px;
-
-    .action-bar-item{
-        padding-right: 0.8rem;
-        align-self: center !important;
-
-        .icon-button{
-            font-size: 1.2rem;
-            font-weight: bold;
-
-            .icon-button-text {
-                font-size: 0.8rem;
-                font-weight: normal;
-                padding: 0 0.5rem 0 0.3rem;
-            }
-        }
-    }
 }

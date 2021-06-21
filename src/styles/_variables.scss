@@ -794,37 +794,6 @@ $dropdown-item-padding-x:           1.5rem !default;
 $dropdown-header-color:             $gray-600 !default;
 
 
-// Pagination
-
-$pagination-padding-y:              .5rem !default;
-$pagination-padding-x:              .75rem !default;
-$pagination-padding-y-sm:           .25rem !default;
-$pagination-padding-x-sm:           .5rem !default;
-$pagination-padding-y-lg:           .75rem !default;
-$pagination-padding-x-lg:           1.5rem !default;
-$pagination-line-height:            1.25 !default;
-
-$pagination-color:                  $link-color !default;
-$pagination-bg:                     $white !default;
-$pagination-border-width:           $border-width !default;
-$pagination-border-color:           $gray-300 !default;
-
-$pagination-focus-box-shadow:       $input-btn-focus-box-shadow !default;
-$pagination-focus-outline:          0 !default;
-
-$pagination-hover-color:            $link-hover-color !default;
-$pagination-hover-bg:               $gray-200 !default;
-$pagination-hover-border-color:     $gray-300 !default;
-
-$pagination-active-color:           $component-active-color !default;
-$pagination-active-bg:              $component-active-bg !default;
-$pagination-active-border-color:    $pagination-active-bg !default;
-
-$pagination-disabled-color:         $gray-600 !default;
-$pagination-disabled-bg:            $white !default;
-$pagination-disabled-border-color:  $gray-300 !default;
-
-
 // Jumbotron
 
 $jumbotron-padding:                 2rem !default;
@@ -1008,30 +977,6 @@ $progress-bar-animation-timing:     1s linear infinite !default;
 $progress-bar-transition:           width .6s ease !default;
 
 
-// List group
-
-$list-group-color:                  null !default;
-$list-group-bg:                     $white !default;
-$list-group-border-color:           rgba($black, .125) !default;
-$list-group-border-width:           $border-width !default;
-$list-group-border-radius:          $border-radius !default;
-
-$list-group-item-padding-y:         .75rem !default;
-$list-group-item-padding-x:         1.25rem !default;
-
-$list-group-hover-bg:               $gray-100 !default;
-$list-group-active-color:           $component-active-color !default;
-$list-group-active-bg:              $component-active-bg !default;
-$list-group-active-border-color:    $list-group-active-bg !default;
-
-$list-group-disabled-color:         $gray-600 !default;
-$list-group-disabled-bg:            $list-group-bg !default;
-
-$list-group-action-color:           $gray-700 !default;
-$list-group-action-hover-color:     $list-group-action-color !default;
-
-$list-group-action-active-color:    $body-color !default;
-$list-group-action-active-bg:       $gray-200 !default;
 
 
 // Image thumbnails
@@ -1140,35 +1085,3 @@ $print-page-size:                   a3 !default;
 $print-body-min-width:              map-get($grid-breakpoints, "lg") !default;
 
 
-// Switches 
-
-$switch-width:          40px !default;
-$switch-height:         26px !default;
-$switch-font-size:      10px !default;
-
-$switch-lg-width:       48px !default;
-$switch-lg-height:      30px !default;
-$switch-lg-font-size:   12px !default;
-
-$switch-sm-width:       32px !default;
-$switch-sm-height:      22px !default;
-$switch-sm-font-size:   8px !default;
-
-$switch-label-width:    48px !default;
-$switch-label-lg-width: 56px !default;
-$switch-label-sm-width: 40px !default;
-
-$switch-handle-margin:  2px !default;
-
-// placeholder-loading
-
-$ph-bg:                   #fff !default;
-$ph-color:                #eaeaea !default;
-$ph-border-radius:        2px !default;
-
-$ph-gutter:               30px !default;
-$ph-spacer:               15px !default;
-
-$ph-avatar-border-radius: 50% !default;
-
-$ph-animation-duration: 2s !default;
