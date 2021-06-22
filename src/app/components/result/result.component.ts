@@ -18,10 +18,13 @@ export class ResultComponent implements OnInit {
     private router:Router
   ) { }
 
+  /* On load of this component, the total time taken is fetched from shared service and initialized
+  Also, the find falcone result API is called*/
   ngOnInit(): void {
     this.totalTimeTaken = this.sharedService.getTimeTaken();
     this.getResult();
   }
+  /* This method creates a request body required for finding falcone service and invokes the findFalcone service */
   async getResult() {
     const reqBody = this.sharedService.getRequestBody();
     this.findFalconeService.findFalcone(reqBody)
@@ -29,6 +32,7 @@ export class ResultComponent implements OnInit {
       this.findResult = finalRes;
     })
   }
+  /* This method routes to home page when user clicks on Back to home button in result page */
   routeToHome() {
     this.router.navigate(['/home'])
   }

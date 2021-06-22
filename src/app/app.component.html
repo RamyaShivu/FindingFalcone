@@ -1,11 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar-sticky">
   <a class="navbar-brand" routerLink="/home">FindingFalcone</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse"
-        data-target="#collapsibleNavbar" [attr.aria-expanded]="!isCollapsed"
-        (click)="isCollapsed = !isCollapsed">
+        data-target="#collapsibleNavbar" [attr.aria-expanded]="!isNavbarCollapsed"
+        (click)="isNavbarCollapsed = !isNavbarCollapsed">
       <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="collapsibleNavbar" [ngbCollapse]="isCollapsed">
+  <div class="collapse navbar-collapse" id="collapsibleNavbar" [ngbCollapse]="isNavbarCollapsed">
       <ul class="navbar-nav ml-auto">
           <li class="nav-item" data-toggle="tab">
               <a class="nav-link" routerLink="/find">Find Falcone</a>

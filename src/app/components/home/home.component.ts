@@ -14,6 +14,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  /* This function is invoked when user clicks on the lets find the queen button in home page
+  and user will navigated to the find page */
   findFalcone() {
     this.router.navigate(['/find']);
   }

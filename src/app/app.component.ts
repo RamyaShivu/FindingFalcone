@@ -5,5 +5,6 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
-  isCollapsed = true;
+  /* to set the status of navbar collapse/expand */
+  isNavbarCollapsed = true;
 }

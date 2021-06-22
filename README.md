@@ -2,6 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
 
+[Deployed Demo](https://falcone.surge.sh/)
+
+## SnapshotS
+
+![snapshot](https://github.com/RamyaShivu/FindingFalcone/blob/main/src/assets/screenshots/Desktop.PNG?raw=true)
+![snapshot](https://github.com/RamyaShivu/FindingFalcone/blob/main/src/assets/screenshots/Mobile.PNG?raw=true)
+![snapshot](https://github.com/RamyaShivu/FindingFalcone/blob/main/src/assets/screenshots/Tablet.PNG?raw=true)
+https://github.com/RamyaShivu/FindingFalcone
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

@@ -66,6 +66,8 @@ export class FindComponent implements OnInit {
 
   /* The below function is invoked whenever a destination is selected and modifies data accrodingly*/
   onHideoutSelection(currentDestination): void {
+    console.log(this.destinationForm.value)
+
     this.vehicleAvailibility[currentDestination].vehicles =
      DataMapper.getVehicleAvailability(this.destinationForm.controls[currentDestination].value, this.hideOutsAvailable, this.vehicles);
     const formObj = this.destinationForm.value;
@@ -137,14 +139,6 @@ export class FindComponent implements OnInit {
       this.sharedService.setRequestBody(reqBody);
       this.router.navigate(['/result']);
     }
-  }
-  /* The below function is invoked when user closes the results modal*/
-  reInitializeComponent() {
-    this.hideOutsAvailable = [];
-    this.vehicles = [];
-    this.disableFindButton = true;
-    this.totalTimeTaken = 0;
-    this.initializeData();
   }
 }
 

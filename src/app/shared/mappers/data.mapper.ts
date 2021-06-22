@@ -1,5 +1,6 @@
+/* A mapper file to modify the Destination and vehicle data as necessary */
+
 // tslint:disable-next-line: no-namespace
-/* A mapper file to kodify the Destination and vehicle data as necessary */
 export namespace DataMapper {
     export function dataForDestination(hideouts): any {
         const tempObj = {
@@ -49,7 +50,7 @@ export namespace DataMapper {
     }
 
     export function getVehicleAvailability(selectedDetsination, destinations, vehicles): any {
-        const destinationSelected = destinations.find(_ => _.name === selectedDetsination);
+        const destinationSelected = destinations.find((_: { name: any; }) => _.name === selectedDetsination);
         const vehicleObj = {};
         vehicles.forEach(vehicle => {
             vehicleObj[vehicle.name] =
@@ -59,7 +60,7 @@ export namespace DataMapper {
     }
     export function disableVehicle(obj, currentVehicleObj, currentDestination, previousVehicle, vehiclesDetails, userSelections): any {
         let prevVehicleTotalNo = null;
-        let userSelectedVehicles = [];
+        const userSelectedVehicles = [];
         for (const key in vehiclesDetails) {
             if (key === 'name' && vehiclesDetails.name === previousVehicle) {
                 prevVehicleTotalNo = vehiclesDetails.totalNo;
